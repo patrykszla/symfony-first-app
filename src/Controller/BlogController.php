@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BlogController extends AbstractController
 {
-    #[Route('/articles', 'blod-articles')]
+    #[Route('/articles', 'blog-articles')]
     public function mainPage(): Response 
     {
         return new Response(content: 'Tu będzie główna strona z artykułami');
