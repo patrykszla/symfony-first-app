@@ -20,6 +20,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+    // INSERT INTO article (id,title, content) VALUES ('', 'test title', 'test content')
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
