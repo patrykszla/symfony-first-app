@@ -16,11 +16,24 @@ class BlogController extends AbstractController
     }
 
     #[Route('/articles', 'blog-articles')]
-    public function mainPage(): Response 
+    public function showArticles(): Response 
     {
         $articles = $this->articleRepository->findAll();
         // dump ( var: $articles );
-        dd( vars: $articles );
-        return new Response(content: 'Tu będzie główna strona z artykułami');
+        // dd( vars: $articles );
+        // return new Response(content: 'Tu będzie główna strona z artykułami');
+
+        $parameters = array(
+            'articles' => $articles,
+        );
+
+        return $this->render( view: 'articles.html.twig', parameters: $parameters );
     }
+
+    #[Route('/article/{articleId}', 'blog-article')]
+    public function showArticle(string $articleId) : Response 
+    {
+        return new Response(content: $articleId);
+    }
+
 }

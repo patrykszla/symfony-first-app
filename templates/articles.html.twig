@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+
+  <div class="">
+    {{ dump(articles) }}
+    {% for article in articles %}
+      <div class="article"> 
+        <div class="div"> <b>ID: {{ article.id}}, </b> <span><b>Article title: {{ article.title }} </b></span></div>
+        <div> 
+          <span><b>Article content:</b></span>
+          <span>{{article.content}}</span> 
+        </div> <br />
+      </div>
+    {% endfor %}
+
+    
+  </div>
+</body>
+</html>
