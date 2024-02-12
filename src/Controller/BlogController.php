@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,10 +31,11 @@ class BlogController extends AbstractController
         return $this->render( view: 'articles.html.twig', parameters: $parameters );
     }
 
-    #[Route('/article/{articleId}', 'blog-article')]
-    public function showArticle(string $articleId) : Response 
-    {
-        return new Response(content: $articleId);
+    #[Route('/article/{article}', 'blog-article')]
+    public function showArticle(Article $article) : Response 
+    {   
+        dd($article);
+        // return new Response(content: $articleId);
     }
 
 }
