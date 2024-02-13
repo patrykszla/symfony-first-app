@@ -9,13 +9,14 @@
 
   <div class="">
   <h1>Articles</h1>
-    {# {{ dump(articles) }} #}
+    {{ dump(articles) }}
+
     {% for article in articles %}
       <div class="article"> 
-        <div class="div"> <b>ID: {{ article.id}}, </b> <span><b>Article title: {{ article.title }} </b></span></div>
+        <div class="div"><a href="{{ article.link }}"><h2>Article title: {{ article.title }}</h2></a></div>
         <div> 
-          <span><b>Article content:</b></span>
-          <span>{{article.content}}</span> 
+          <span><b>Article content: </b><span>{{article.content}}</span> </span>
+          
         </div> <br />
       </div>
     {% endfor %}
