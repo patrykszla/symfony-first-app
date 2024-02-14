@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  {{ article.title }}
+{% endblock %} 
+
+{% block body %}
+  <div class="">
+    <h1>{{ article.title }}</h1>
+    <span>{{ article.content }}</span>
+  </div>
+{% endblock %}
+{# <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,10 +22,6 @@
   <div class="">
   <h1>{{ article.title }}</h1>
     <span>{{ article.content }}</span>
-
-   
-
-    
   </div>
 </body>
-</html>
+</html> #}
