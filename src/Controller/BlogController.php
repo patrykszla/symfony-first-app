@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Service\ArticleProvider;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BlogController extends AbstractController
 {
     public function __construct(
-        private ArticleRepository $articleRepository
+        private ArticleRepository $articleRepository,
+        private ArticleProvider $articleProvider
     )
     {
         
@@ -20,24 +22,12 @@ class BlogController extends AbstractController
     public function showArticles(): Response 
     {
         $articles = $this->articleRepository->findAll();
-        // dump ( var: $articles );
-        // dd( vars: $articles );
-        // return new Response(content: 'Tu będzie główna strona z artykułami');
-
-        // $parameters = array(
-        //     'articles' => $articles,
-        // );
-
         $parameters = [];
-        foreach ($articles as $article) {
-            $parameters['articles'][] = [
-            'title' => $article->getTitle(),
-            'content' => substr($article->getContent(), 0, 30.) . '...',
-            'link' => 'article/' . $article->getId(),
-            ];
+        if ($articles) {
+            $parameters = $this->articleProvider->transformDataForTwig($articles);
         }
 
-        return $this->render( view: 'articles.html.twig', parameters: $parameters );
+        return $this->render( view: 'articles/articles.html.twig', parameters: $parameters );
     }
 
     #[Route('/article/{article}', 'blog-article')]
@@ -47,7 +37,7 @@ class BlogController extends AbstractController
         // return new Response(content: $articleId);
         $parameters = [];
         $parameters['article'] = $article;
-        return $this->render('article.html.twig', $parameters);
+        return $this->render('articles/article.html.twig', $parameters);
     }
 
 }
