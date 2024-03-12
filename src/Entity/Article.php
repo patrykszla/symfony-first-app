@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
@@ -16,8 +17,11 @@ class Article
     #[ORM\Column(length: 255)]
     private string $title;
 
-    #[ORM\Column(length: 2000)]
+    #[ORM\Column(type: 'text')]
     private string $content;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $dateAdded = null;
 
     public function getId(): ?int
     {
@@ -44,6 +48,18 @@ class Article
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getDateAdded(): ?\DateTimeInterface
+    {
+        return $this->dateAdded;
+    }
+
+    public function setDateAdded(\DateTimeInterface $dateAdded): static
+    {
+        $this->dateAdded = $dateAdded;
 
         return $this;
     }
