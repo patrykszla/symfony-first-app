@@ -26,6 +26,7 @@ class BlogController extends AbstractController
         if ($articles) {
             $parameters = $this->articleProvider->transformDataForTwig($articles);
         }
+        $articles = $parameters;
 
         return $this->render( view: 'articles/articles.html.twig', parameters: $parameters );
     }
