@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Article;
+use App\Entity\InformationAboutMe;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -29,6 +30,24 @@ class AppFixtures extends Fixture
         $article3->setContent( content: 'Spoon, dripper iced, galão arabica con panna froth roast steamed variety redeye. Blue mountain lungo white extra , shop, coffee mug white crema plunger pot. Skinny, coffee fair trade, blue mountain, cinnamon aftertaste flavour steamed froth crema that cappuccino.' );
         $article3->setTitle( title: 'Pierwszy artykuł');
         $article3->setDateAdded( dateAdded: new DateTime('13.12.2023'));
+
+        $infoAboutMe = new InformationAboutMe(
+            key: 'Imię',
+            value: 'Patryk'
+        );
+        $manager->persist($infoAboutMe);
+
+        $infoAboutMe2 = new InformationAboutMe(
+            key: 'Nazwisko',
+            value: 'Testowe'
+        );
+        $manager->persist($infoAboutMe2);
+
+        $infoAboutMe3 = new InformationAboutMe(
+            key: 'Informacja',
+            value: 'Programista PHP'
+        );
+        $manager->persist($infoAboutMe3);
 
 
         $manager->persist($article3);

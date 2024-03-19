@@ -12,6 +12,7 @@ class ArticleProvider
             'title' => $article->getTitle(),
             'content' => substr($article->getContent(), 0, 30.) . '...',
             'link' => 'article/' . $article->getId(),
+            'dateAdded' => $article->getDateAdded(),
             ];
         }
 
