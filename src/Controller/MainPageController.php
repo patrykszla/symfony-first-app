@@ -20,13 +20,12 @@ class MainPageController extends AbstractController
     public function index(): Response
     {
         $parameters = [
-            $this->articleRepository->getLastArticle(),
+            'lastArticle' => $this->articleRepository->getLastArticle(),
         ];
         
-        dd($parameters);
+        // dd($parameters);
 
-        return $this->render('main_page/index.html.twig', [
-            'parameters' => $parameters,
-        ]);
+        return $this->render('main_page/index.html.twig', $parameters
+        );
     }
 }

@@ -26,7 +26,7 @@ class ArticleRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('a');
         $queryBuilder->orderBy('a.dateAdded','DESC');
         $queryBuilder->setMaxResults(1);
-        
+        // dd($queryBuilder->getQuery());
         // return $queryBuilder->getQuery()->execute();
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
