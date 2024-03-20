@@ -18,6 +18,5 @@ class ArticleProvider
 
         return $transformedData;
     }
-
     
 }

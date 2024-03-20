@@ -20,6 +20,17 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+
+    public function getLastArticle(): ?Article
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->orderBy('a.dateAdded','DESC');
+        $queryBuilder->setMaxResults(1);
+        
+        // return $queryBuilder->getQuery()->execute();
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
     // INSERT INTO article (id,title, content) VALUES ('', 'test title', 'test content')
 
 //    /**
