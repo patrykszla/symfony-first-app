@@ -46,21 +46,21 @@ class AppFixtures extends Fixture
         $image3->setPath('img3.jpg');
         $image3->setTitle('Title 3');
         $image3->setTitle('Alt 3');
-        $article->addImage($image3);
+        $article2->addImage($image3);
         $manager->persist($image3);
         
         $image4 = new Image();
         $image4->setPath('img4.jpg');
         $image4->setTitle('Title 4');
         $image4->setTitle('Alt 4');
-        $article->addImage($image4);
+        $article2->addImage($image4);
         $manager->persist($image4);
 
         $image5 = new Image();
         $image5->setPath('img5.jpg');
         $image5->setTitle('Title 5');
         $image5->setTitle('Alt 5');
-        $article->addImage($image5);
+        $article2->addImage($image5);
         $manager->persist($image5);
 
         $manager->persist($article2);
@@ -76,14 +76,14 @@ class AppFixtures extends Fixture
         $image6->setPath('img6.jpg');
         $image6->setTitle('Title 6');
         $image6->setTitle('Alt 6');
-        $article->addImage($image6);
+        $article3->addImage($image6);
         $manager->persist($image6);
 
         $image7 = new Image();
         $image7->setPath('img7.jpg');
         $image7->setTitle('Title 7');
         $image7->setTitle('Alt 7');
-        $article->addImage($image7);
+        $article3->addImage($image7);
         $manager->persist($image7);
 
         $manager->persist($article3);
