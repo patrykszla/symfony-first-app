@@ -5,20 +5,14 @@
 {% endblock %}
 
 {% block body %}
-{{dump()}}
+{# {{dump()}} #}
  <div class="">
   <h1>Articles</h1>
     {{ dump(articles) }}
     {% for article in articles %}
-      <div class="article"> 
-        <div class="div"><a href="{{ article.link }}"><h2>Article title: {{ article.title }}</h2></a></div>
-        <div> 
-          <span><b>Date added: </b><span>{{article.dateAdded|date("m/d/y")}}</span> </span><br />
+      {{ include('articles/article_teaser.html.twig', {article:article}) }}
+      <br />  
 
-          <span><b>Article content: </b><span>{{article.content}}</span> </span>
-          
-        </div> <br />
-      </div>
     {% endfor %}
   </div>
 

@@ -18,12 +18,14 @@
     </div>
     <div>
         <h2>Ostatni artykuł:</h2>
-        <h3>{{ lastArticle.title }}</h3>
+            {{ include('articles/article_teaser.html.twig', {article:lastArticle}) }}
+
+        {# <h3>{{ lastArticle.title }}</h3>
         <a href="article/{{ lastArticle.id }}">
             <span>
                 {{ lastArticle.content|slice(0,30) ~ '...' }}
             </span>
-        </a>
+        </a> #}
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,7 @@
+<div class="article"> 
+    <div class="div"><a href="{{ article.link }}"><h2>Article title: {{ article.title }}</h2></a></div>
+    <div> 
+        <span><b>Date added: </b><span>{{article.dateAdded|date("m/d/y")}}</span> </span><br />
+        <span><b>Article content: </b><span>{{article.content}}</span> </span>
+    </div> 
+</div>
