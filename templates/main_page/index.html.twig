@@ -19,13 +19,6 @@
     <div>
         <h2>Ostatni artykuł:</h2>
             {{ include('articles/article_teaser.html.twig', {article:lastArticle}) }}
-
-        {# <h3>{{ lastArticle.title }}</h3>
-        <a href="article/{{ lastArticle.id }}">
-            <span>
-                {{ lastArticle.content|slice(0,30) ~ '...' }}
-            </span>
-        </a> #}
     </div>
 </div>
 {% endblock %}
